@@ -44,7 +44,7 @@
 
 | Pending Tasks | Edit Task | Delete Confirm |
 |--|--|--|
-| ![Pending](/task-master/public/pendingtask.png) | ![Edit](/task-master/public/edittask.png) | ![Delete](/task-master/public/deletetask.png) |
+| ![Pending](public/pendingtask.png) | ![Edit](public/edittask.png) | ![Delete](public/deletetask.png) |
 
 ---
 
