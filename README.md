@@ -3,7 +3,7 @@
 > **A modern, professional, feature‑rich to‑do list app built with React, Tailwind CSS, and Firebase.**  
 > Organize your tasks, boost productivity, and track progress – beautifully.
 
-![Task Master Banner](https://your-screenshot-link/banner.png)
+![Task Master Banner](/task-master/public/logo.png)
 
 ---
 
@@ -40,11 +40,11 @@
 
 | Login | Dashboard | Add Task |
 |--|--|--|
-| ![Login](https://your-screenshot-link/login.png) | ![Dashboard](https://your-screenshot-link/dashboard.png) | ![Add Task](https://your-screenshot-link/add-task.png) |
+| ![Login](/task-master/public/login.png) | ![Dashboard](/task-master/public/dashboard.png) | ![Add Task](/task-master/public/addtask.png) |
 
 | Pending Tasks | Edit Task | Delete Confirm |
 |--|--|--|
-| ![Pending](https://your-screenshot-link/pending.png) | ![Edit](https://your-screenshot-link/edit.png) | ![Delete](https://your-screenshot-link/delete.png) |
+| ![Pending](/task-master/public/pendingtask.png) | ![Edit](/task-master/public/edittask.png) | ![Delete](/task-master/public/deletetask.png) |
 
 ---
 
