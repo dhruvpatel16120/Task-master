@@ -18,6 +18,7 @@
 - Completion rate
 - Latest tasks list
 - Motivational quotes widget (with author & new quote button)
+  
 ✅ Export tasks to CSV  
 ✅ Delete confirm modal  
 ✅ Fully responsive design with Tailwind v3  
