@@ -9,6 +9,7 @@ import Signup from './pages/Signup';
 import Logout from './pages/Logout';
 import EditTask from './pages/EditTask';
 import CalendarView from './pages/CalendarView';
+import PrivateRoute from './components/PrivateRoute';
 import { Toaster } from 'react-hot-toast';
 
 export default function App() {
@@ -18,15 +19,15 @@ export default function App() {
       <Navbar />
 
       <Routes>
-        <Route path="/" element={<Dashboard />} />
-        <Route path="/add" element={<AddTask />} />
-        <Route path="/pending" element={<PendingTasks />} />
-        <Route path="/completed" element={<CompletedTasks />} />
+        <Route path="/" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
+        <Route path="/add" element={<PrivateRoute><AddTask /></PrivateRoute>} />
+        <Route path="/pending" element={<PrivateRoute><PendingTasks /></PrivateRoute>} />
+        <Route path="/completed" element={<PrivateRoute><CompletedTasks /></PrivateRoute>} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/logout" element={<Logout />} />
-        <Route path="/edit/:id" element={<EditTask />} />
-        <Route path="/calendar" element={<CalendarView />} />
+        <Route path="/logout" element={<PrivateRoute><Logout /></PrivateRoute>} />
+        <Route path="/edit/:id" element={<PrivateRoute><EditTask /></PrivateRoute>} />
+        <Route path="/calendar" element={<PrivateRoute><CalendarView /></PrivateRoute>} />
       </Routes>
     </>
   );
