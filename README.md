@@ -53,16 +53,14 @@
 > 🪄 *Beginner‑friendly, step by step:*
 
 ### 📥 1️⃣ Clone this repository
-```bash
+
 git clone https://github.com/yourusername/task-master.git
 cd task-master
 
-## 2️⃣ Install dependencies
-bash
-Copy
-Edit
+### 2️⃣ Install dependencies
 npm install
-🔑 3️⃣ Setup your Firebase project
+
+### 🔑 3️⃣ Setup your Firebase project
 Go to Firebase Console
 
 Create a new project → add Web App
