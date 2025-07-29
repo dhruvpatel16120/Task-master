@@ -3,7 +3,9 @@ import { db } from "../services/firebase";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { useAuth } from "../context/AuthContext";
 import Navbar from "../components/Navbar";
-import toast from "react-hot-toast"; // ✅ add this import
+import toast from "react-hot-toast";
+import { validateTaskData, sanitizeTaskData } from "../utils/security";
+import { handleDatabaseError } from "../utils/errorHandler";
 
 export default function AddTask() {
   const { user } = useAuth();
@@ -18,25 +20,35 @@ export default function AddTask() {
   const [loading, setLoading] = useState(false);
 
   const handleAdd = async () => {
-    if (!title.trim()) {
-      toast.error("Please enter task title.");
+    // Validate task data
+    const taskData = {
+      title,
+      description,
+      category,
+      priority,
+      tags: tags.split(",").map(t => t.trim()).filter(Boolean),
+      duration,
+      highPriority,
+      dueDate: dueDate ? new Date(dueDate) : null
+    };
+
+    const validation = validateTaskData(taskData);
+    if (!validation.isValid) {
+      toast.error(validation.errors.join(', '));
       return;
     }
+
     setLoading(true);
 
     try {
+      // Sanitize task data before saving
+      const sanitizedData = sanitizeTaskData(taskData);
+      
       await addDoc(collection(db, "tasks"), {
         uid: user.uid,
         username: user.displayName || "Anonymous",
         userEmail: user.email || "No email",
-        title,
-        description,
-        category,
-        priority,
-        tags: tags.split(",").map(t => t.trim()).filter(Boolean),
-        duration,
-        highPriority,
-        dueDate: dueDate ? new Date(dueDate) : null,
+        ...sanitizedData,
         completed: false,
         createdAt: serverTimestamp()
       });
@@ -48,8 +60,8 @@ export default function AddTask() {
 
       toast.success("✅ Task added successfully!");
     } catch (err) {
-      console.error("Add task error:", err);
-      toast.error("Something went wrong. Try again.");
+      const errorMessage = handleDatabaseError(err, 'add_task');
+      toast.error(errorMessage);
     } finally {
       setLoading(false);
     }

@@ -1,169 +1,491 @@
-# 📝 Task Master — Advanced To‑Do List App
+# 🚀 Task Master — Advanced To-Do List App
 
-> **A modern, professional, feature‑rich to‑do list app built with React, Tailwind CSS, and Firebase.**  
-> Organize your tasks, boost productivity, and track progress – beautifully.
+> **A modern, professional, feature-rich to-do list app built with React, Tailwind CSS, and Firebase.**  
+> Organize your tasks, boost productivity, and track progress with enterprise-grade security.
 
-![Task Master Banner](/task-master/public/logo.png)
-
----
-
-## ✨ **Features**
-
-✅ User authentication (Google & Email/Password)  
-✅ Add, edit, delete tasks with categories, priority & tags  
-✅ Live preview while adding/editing  
-✅ High priority toggle  
-✅ Dashboard with:
-- Total, completed & pending counts
-- Completion rate
-- Latest tasks list
-- Motivational quotes widget (with author & new quote button)
-✅ Export tasks to CSV  
-✅ Delete confirm modal  
-✅ Fully responsive design with Tailwind v3  
-✅ Firebase Firestore integration  
-✅ Professional UI, smooth fade animations
+![Task Master Banner](https://img.shields.io/badge/Task%20Master-v2.0-blue?style=for-the-badge&logo=react)
+![Security](https://img.shields.io/badge/Security-Enterprise%20Grade-green?style=for-the-badge&logo=shield)
+![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)
 
 ---
 
-## 🛠 **Tech Stack**
+## 📋 Table of Contents
 
-| Frontend | Styling | Backend | Build | Features |
-|--|--|--|--|--|
-| React | Tailwind CSS v3 | Firebase Auth & Firestore | Vite | react-hot-toast, Chart.js, papaparse |
-
----
-
-## 📸 **Screenshots**
-
-> Replace these with your real screenshots:
-
-| Login | Dashboard | Add Task |
-|--|--|--|
-| ![Login](/task-master/public/login.png) | ![Dashboard](/task-master/public/dashboard.png) | ![Add Task](/task-master/public/addtask.png) |
-
-| Pending Tasks | Edit Task | Delete Confirm |
-|--|--|--|
-| ![Pending](/task-master/public/pendingtask.png) | ![Edit](/task-master/public/edittask.png) | ![Delete](/task-master/public/deletetask.png) |
+- [✨ Features](#-features)
+- [🔒 Security Features](#-security-features)
+- [🛠️ Tech Stack](#️-tech-stack)
+- [📸 Screenshots](#-screenshots)
+- [⚙️ Installation & Setup](#️-installation--setup)
+- [🔧 Configuration](#-configuration)
+- [🚀 Deployment](#-deployment)
+- [🔍 Security & Quality](#-security--quality)
+- [📚 API Documentation](#-api-documentation)
+- [🤝 Contributing](#-contributing)
+- [📄 License](#-license)
 
 ---
 
-## ⚙ **Installation & Setup**
+## ✨ Features
 
-> 🪄 *Beginner‑friendly, step by step:*
+### 🎯 **Core Functionality**
+- ✅ **User Authentication** - Google OAuth & Email/Password with secure session management
+- ✅ **Task Management** - Create, edit, delete, and organize tasks with categories & priorities
+- ✅ **Smart Dashboard** - Real-time statistics, completion rates, and progress tracking
+- ✅ **Advanced Filtering** - Filter by status, category, priority, and due dates
+- ✅ **Calendar Integration** - Visual calendar view for task scheduling
+- ✅ **Data Export** - Export tasks to CSV format for backup and analysis
 
-### 📥 1️⃣ Clone this repository
+### 🎨 **User Experience**
+- ✅ **Responsive Design** - Beautiful UI that works on all devices
+- ✅ **Dark/Light Mode** - Toggle between themes for comfortable usage
+- ✅ **Real-time Updates** - Live synchronization across all devices
+- ✅ **Smooth Animations** - Professional transitions and micro-interactions
+- ✅ **Accessibility** - WCAG compliant for inclusive design
 
+### 📊 **Analytics & Insights**
+- ✅ **Progress Tracking** - Visual charts and completion statistics
+- ✅ **Productivity Metrics** - Time tracking and performance analytics
+- ✅ **Motivational Quotes** - Daily inspiration to boost productivity
+- ✅ **Task History** - Complete audit trail of all activities
+
+---
+
+## 🔒 Security Features
+
+### 🛡️ **Enterprise-Grade Security**
+- ✅ **Authentication Security** - Rate limiting, password strength validation, account lockout
+- ✅ **Data Protection** - XSS prevention, input sanitization, SQL injection protection
+- ✅ **Privacy Controls** - User data isolation, secure data deletion, GDPR compliance
+- ✅ **Infrastructure Security** - Environment variable protection, secure API endpoints
+- ✅ **Monitoring & Auditing** - Security logging, vulnerability scanning, incident response
+
+### 🔐 **Security Measures**
+```bash
+# Automated Security Checks
+npm run security-audit    # Vulnerability scanning
+npm run security-check    # Full security validation
+npm run pre-commit        # Pre-commit security checks
+```
+
+### 🚨 **Security Best Practices**
+- **Input Validation** - All user inputs are validated and sanitized
+- **Rate Limiting** - Protection against brute force attacks
+- **Error Handling** - Secure error messages without data exposure
+- **Code Quality** - ESLint security rules and automated audits
+- **Dependency Management** - Regular security updates and vulnerability scanning
+
+---
+
+## 🛠️ Tech Stack
+
+| Category | Technology | Purpose |
+|----------|------------|---------|
+| **Frontend** | React 19.1.0 | Modern UI framework |
+| **Styling** | Tailwind CSS 3.4.17 | Utility-first CSS framework |
+| **Backend** | Firebase 11.9.1 | Authentication & Database |
+| **Build Tool** | Vite 7.0.0 | Fast development & building |
+| **Charts** | Chart.js 4.5.0 | Data visualization |
+| **Animations** | Framer Motion 12.19.2 | Smooth UI animations |
+| **Notifications** | React Hot Toast 2.5.2 | User feedback |
+| **Routing** | React Router DOM 7.6.3 | Client-side routing |
+| **Data Export** | PapaParse 5.5.3 | CSV parsing & export |
+
+---
+
+## 📸 Screenshots
+
+> *Replace these with your actual screenshots:*
+
+| **Login & Authentication** | **Dashboard Overview** | **Task Management** |
+|---------------------------|------------------------|-------------------|
+| ![Login](/public/login.png) | ![Dashboard](/public/dashboard.png) | ![Add Task](/public/addtask.png) |
+
+| **Calendar View** | **Task Analytics** | **Mobile Responsive** |
+|------------------|-------------------|---------------------|
+| ![Calendar](/public/calendar.png) | ![Analytics](/public/analytics.png) | ![Mobile](/public/mobile.png) |
+
+---
+
+## ⚙️ Installation & Setup
+
+### 📋 **Prerequisites**
+- Node.js 18+ and npm
+- Firebase account
+- Git
+
+### 🚀 **Quick Start**
+
+#### 1️⃣ **Clone the Repository**
+```bash
+git clone https://github.com/yourusername/task-master.git
+cd task-master
+```
+
+#### 2️⃣ **Install Dependencies**
+```bash
+npm install
+```
+
+#### 3️⃣ **Environment Configuration**
+```bash
+# Copy environment template
+cp env.example .env
+
+# Edit .env with your Firebase credentials
+nano .env
+```
+
+#### 4️⃣ **Firebase Setup**
+1. Go to [Firebase Console](https://console.firebase.google.com/)
+2. Create a new project
+3. Enable Authentication (Email/Password & Google)
+4. Create Firestore database
+5. Copy your Firebase config to `.env`
+
+#### 5️⃣ **Security Validation**
+```bash
+# Run security audit
+npm run security-audit
+
+# Run full security check
+npm run security-check
+```
+
+#### 6️⃣ **Start Development**
+```bash
+npm run dev
+```
+
+Visit `http://localhost:5173` to see your app!
+
+---
+
+## 🔧 Configuration
+
+### 📝 **Environment Variables**
+
+Create a `.env` file with the following variables:
+
+```bash
+# Firebase Configuration
+VITE_FIREBASE_API_KEY=your_api_key_here
+VITE_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
+VITE_FIREBASE_PROJECT_ID=your_project_id
+VITE_FIREBASE_STORAGE_BUCKET=your_project.appspot.com
+VITE_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
+VITE_FIREBASE_APP_ID=your_app_id
+VITE_FIREBASE_MEASUREMENT_ID=your_measurement_id
+
+# Security Configuration
+VITE_ENABLE_DEBUG_MODE=false
+VITE_ENABLE_ERROR_TRACKING=true
+VITE_ERROR_TRACKING_SERVICE=sentry
+
+# Feature Flags
+VITE_ENABLE_ANALYTICS=true
+VITE_ENABLE_PWA=true
+
+# API Configuration
+VITE_API_TIMEOUT=30000
+VITE_MAX_FILE_SIZE=5242880
+```
+
+### 🔐 **Firebase Security Rules**
+
+Add these Firestore security rules:
+
+```javascript
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Users can only access their own data
+    match /users/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+    
+    // Tasks belong to users
+    match /tasks/{taskId} {
+      allow read, write: if request.auth != null && 
+        request.auth.uid == resource.data.uid;
+    }
+  }
+}
+```
+
+---
+
+## 🚀 Deployment
+
+### 🌐 **Firebase Hosting**
+
+#### 1️⃣ **Build for Production**
+```bash
+npm run build
+```
+
+#### 2️⃣ **Initialize Firebase (First Time)**
+```bash
+npm install -g firebase-tools
+firebase login
+firebase init
+```
+
+**Firebase Init Options:**
+- Public directory: `dist`
+- Configure as SPA: `Yes`
+- Overwrite index.html: `No`
+
+#### 3️⃣ **Deploy**
+```bash
+firebase deploy
+```
+
+### 🔒 **Security Commands**
+```bash
+# Run security audit
+npm run security-audit
+
+# Run full security check (lint + audit)
+npm run security-check
+
+# Run before commits
+npm run pre-commit
+```
+
+### 📊 **Available Scripts**
+```bash
+npm run dev          # Start development server
+npm run build        # Build for production
+npm run preview      # Preview production build
+npm run lint         # Run ESLint
+npm run security-audit # Security vulnerability scan
+```
+
+---
+
+## 🔍 Security & Quality
+
+### 🛡️ **Security Features**
+
+#### **Authentication & Authorization**
+- **Multi-factor Authentication** - Google OAuth + Email/Password
+- **Rate Limiting** - 5 login attempts per 15 minutes
+- **Session Management** - Secure persistence with automatic timeout
+- **Password Policies** - Minimum 8 characters with complexity requirements
+
+#### **Data Protection**
+- **Input Sanitization** - XSS prevention through HTML sanitization
+- **Validation** - Comprehensive input validation for all user data
+- **Encryption** - Data encrypted in transit and at rest
+- **Access Control** - User data isolation and permission-based access
+
+#### **Infrastructure Security**
+- **Environment Variables** - No hardcoded secrets
+- **Content Security Policy** - Strict CSP headers
+- **Error Handling** - Secure error messages without data exposure
+- **Audit Logging** - Comprehensive security event logging
+
+### 🔧 **Code Quality**
+
+#### **Automated Checks**
+```bash
+# Code Quality
+npm run lint                    # ESLint with security rules
+npm run security-audit         # Vulnerability scanning
+npm run security-check         # Full security validation
+
+# Pre-commit Hooks
+npm run pre-commit             # Automated quality gates
+```
+
+#### **Quality Standards**
+- **ESLint Security Rules** - Enforce secure coding practices
+- **No Console Logs** - Production-safe logging
+- **Type Safety** - Comprehensive input validation
+- **Error Boundaries** - Graceful error handling
+
+---
+
+## 📚 API Documentation
+
+### 🔐 **Authentication Endpoints**
+
+#### **Login**
+```javascript
+// Email/Password Login
+const login = async (email, password) => {
+  const result = await signInWithEmailAndPassword(auth, email, password);
+  return result.user;
+};
+
+// Google OAuth Login
+const googleLogin = async () => {
+  const result = await signInWithPopup(auth, googleProvider);
+  return result.user;
+};
+```
+
+#### **Password Reset**
+```javascript
+const resetPassword = async (email) => {
+  await sendPasswordResetEmail(auth, email);
+};
+```
+
+### 📝 **Task Management API**
+
+#### **Create Task**
+```javascript
+const createTask = async (taskData) => {
+  const sanitizedData = sanitizeTaskData(taskData);
+  const docRef = await addDoc(collection(db, "tasks"), {
+    uid: user.uid,
+    ...sanitizedData,
+    createdAt: serverTimestamp()
+  });
+  return docRef;
+};
+```
+
+#### **Update Task**
+```javascript
+const updateTask = async (taskId, updates) => {
+  const sanitizedUpdates = sanitizeTaskData(updates);
+  await updateDoc(doc(db, "tasks", taskId), {
+    ...sanitizedUpdates,
+    updatedAt: serverTimestamp()
+  });
+};
+```
+
+#### **Delete Task**
+```javascript
+const deleteTask = async (taskId) => {
+  await deleteDoc(doc(db, "tasks", taskId));
+};
+```
+
+### 🔍 **Query Examples**
+
+#### **Get User Tasks**
+```javascript
+const getUserTasks = async (userId) => {
+  const q = query(
+    collection(db, "tasks"),
+    where("uid", "==", userId),
+    orderBy("createdAt", "desc")
+  );
+  const snapshot = await getDocs(q);
+  return snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+};
+```
+
+#### **Filter Tasks**
+```javascript
+const getFilteredTasks = async (userId, filters) => {
+  let q = query(collection(db, "tasks"), where("uid", "==", userId));
+  
+  if (filters.category) {
+    q = query(q, where("category", "==", filters.category));
+  }
+  
+  if (filters.completed !== undefined) {
+    q = query(q, where("completed", "==", filters.completed));
+  }
+  
+  const snapshot = await getDocs(q);
+  return snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+};
+```
+
+---
+
+## 🤝 Contributing
+
+We welcome contributions! Please follow these guidelines:
+
+### 📋 **Contribution Process**
+
+1. **Fork the repository**
+2. **Create a feature branch** (`git checkout -b feature/amazing-feature`)
+3. **Make your changes** following our coding standards
+4. **Run security checks** (`npm run security-check`)
+5. **Commit your changes** (`git commit -m 'Add amazing feature'`)
+6. **Push to the branch** (`git push origin feature/amazing-feature`)
+7. **Open a Pull Request**
+
+### 🔧 **Development Setup**
+
+```bash
+# Clone your fork
 git clone https://github.com/yourusername/task-master.git
 cd task-master
 
-### 2️⃣ Install dependencies
+# Install dependencies
 npm install
 
-### 🔑 3️⃣ Setup your Firebase project
-Go to Firebase Console
+# Set up environment
+cp env.example .env
+# Edit .env with your Firebase credentials
 
-Create a new project → add Web App
+# Run security checks
+npm run security-check
 
-Enable Authentication: Email/Password & Google
-
-Create Firestore database
-
-Copy your Firebase config:
-
-js
-Copy
-Edit
-const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_PROJECT.firebaseapp.com",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_PROJECT.appspot.com",
-  messagingSenderId: "SENDER_ID",
-  appId: "APP_ID"
-};
-Replace the placeholder config in:
-
-js
-Copy
-Edit
-src/services/firebase.js
-✅ Tip: never commit real keys to GitHub → use .env files for production.
-
-🏗 4️⃣ Build for production
-bash
-Copy
-Edit
-npm run build
-This creates optimized files in /dist.
-
-🌐 5️⃣ Deploy to Firebase Hosting
-Initialize (first time only):
-
-bash
-Copy
-Edit
-firebase init
-During init:
-
-Public directory: dist
-
-Configure as SPA: yes
-
-Do not overwrite index.html
-
-GitHub deploy: optional (type n to skip)
-
-Then deploy:
-
-bash
-Copy
-Edit
-firebase deploy
-✅ Copy your live URL!
-
-🚀 Dev server (for local development)
-bash
-Copy
-Edit
+# Start development
 npm run dev
-✅ Preview production build locally
-bash
-Copy
-Edit
-npm run serve
-✨ Firebase config replacement (recommended for production)
-Instead of hard‑coding config, use environment variables:
+```
 
-1️⃣ Create .env file:
+### 📝 **Coding Standards**
 
-env
-Copy
-Edit
-VITE_FIREBASE_API_KEY=xxx
-VITE_FIREBASE_AUTH_DOMAIN=xxx
-...
-2️⃣ In src/services/firebase.js:
+- **ESLint Rules** - Follow the configured ESLint rules
+- **Security First** - Always validate and sanitize inputs
+- **Error Handling** - Use the centralized error handler
+- **Documentation** - Comment complex logic and update docs
+- **Testing** - Add tests for new features
 
-js
-Copy
-Edit
-const firebaseConfig = {
-  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
-  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
-  ...
-};
-✅ This keeps keys private & easy to change.
+### 🐛 **Reporting Issues**
 
-📌 Folder structure (for reference)
-bash
-Copy
-Edit
-src/
-  assets/          # logos, images
-  components/      # Navbar, Footer, etc.
-  context/         # AuthContext
-  pages/           # Dashboard, AddTask, EditTask, PendingTasks, etc.
-  services/        # firebase.js
-  App.jsx
-  main.jsx
+When reporting issues, please include:
+- **Description** - Clear description of the problem
+- **Steps to Reproduce** - Detailed reproduction steps
+- **Expected Behavior** - What you expected to happen
+- **Actual Behavior** - What actually happened
+- **Environment** - Browser, OS, and version information
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+### 📊 **Project Statistics**
+
+![GitHub stars](https://img.shields.io/github/stars/yourusername/task-master?style=social)
+![GitHub forks](https://img.shields.io/github/forks/yourusername/task-master?style=social)
+![GitHub issues](https://img.shields.io/github/issues/yourusername/task-master)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/yourusername/task-master)
+
+---
+
+## 🙏 **Acknowledgments**
+
+- **Firebase** - For providing excellent backend services
+- **React Team** - For the amazing React framework
+- **Tailwind CSS** - For the utility-first CSS framework
+- **Vite** - For the fast build tool
+- **Contributors** - Everyone who contributed to this project
+
+---
+
+## 📞 **Support**
+
+- **Documentation** - Check this README and inline code comments
+- **Issues** - Report bugs and request features via GitHub Issues
+- **Discussions** - Join the conversation in GitHub Discussions
+- **Security** - Report security vulnerabilities privately
+
+---
+
+**Made with ❤️ by the Task Master Team**
+
+*Organize your life, one task at a time.*

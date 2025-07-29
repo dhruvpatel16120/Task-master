@@ -10,6 +10,8 @@ import {
 } from "firebase/auth";
 import { doc, setDoc, serverTimestamp } from "firebase/firestore";
 import { useNavigate, Link } from "react-router-dom";
+import { validateEmail, rateLimiter } from "../utils/security";
+import { handleAuthError, handleDatabaseError } from "../utils/errorHandler";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -25,14 +27,19 @@ export default function Login() {
     e.preventDefault();
     setError(null);
 
+    // Rate limiting check
+    if (!rateLimiter.isAllowed(email)) {
+      setError("Too many login attempts. Please wait a moment and try again.");
+      return;
+    }
+
     if (!email || !password) {
       setError("Please enter both email and password.");
       return;
     }
 
-    // Email basic validation
-    const emailRegex = /\S+@\S+\.\S+/;
-    if (!emailRegex.test(email)) {
+    // Enhanced email validation
+    if (!validateEmail(email)) {
       setError("Please enter a valid email address.");
       return;
     }
@@ -46,10 +53,11 @@ export default function Login() {
       await setPersistence(auth, persistence);
       await signInWithEmailAndPassword(auth, email, password);
 
+      // Reset rate limiter on successful login
+      rateLimiter.reset(email);
       navigate("/");
     } catch (err) {
-      console.error("Login error:", err);  // dev logging
-      handleAuthError(err);
+      setError(handleAuthError(err));
     } finally {
       setLoading(false);
     }
@@ -73,8 +81,7 @@ export default function Login() {
 
       navigate("/");
     } catch (err) {
-      console.error(err);
-      handleAuthError(err);
+      setError(handleAuthError(err));
     }
   };
 
@@ -86,55 +93,20 @@ export default function Login() {
       return;
     }
 
+    if (!validateEmail(resetEmail)) {
+      setError("Please enter a valid email address.");
+      return;
+    }
+
     try {
       await sendPasswordResetEmail(auth, resetEmail);
       alert("Password reset email sent. Check your inbox.");
     } catch (err) {
-      console.error(err);
-      handleAuthError(err);
+      setError(handleAuthError(err));
     }
   };
 
-  // ✅ Function to handle Firebase Auth errors
-  const handleAuthError = (err) => {
-  console.error(err); // for dev
 
-  if (err.code) {
-    switch (err.code) {
-      case "auth/user-not-found":
-        setError("No account found with this email.");
-        break;
-      case "auth/wrong-password":
-        setError("Incorrect password. Please try again.");
-        break;
-      case "auth/invalid-email":
-        setError("Please enter a valid email address.");
-        break;
-      case "auth/missing-password":
-        setError("Password is required.");
-        break;
-      case "auth/weak-password":
-        setError("Password should be at least 6 characters.");
-        break;
-      case "auth/network-request-failed":
-        setError("Network error. Please check your internet connection.");
-        break;
-      case "auth/too-many-requests":
-        setError("Too many failed attempts. Please wait and try again later.");
-        break;
-      case "auth/popup-closed-by-user":
-        setError("Login popup was closed. Please try again.");
-        break;
-      case "auth/invalid-credential":
-        setError("Invalid login credentials. Please check and try again.");
-        break;
-      default:
-        setError("Something went wrong. Please try again.");
-    }
-  } else {
-    setError("Something went wrong. Please try again.");
-  }
-};
 
 
   return (
