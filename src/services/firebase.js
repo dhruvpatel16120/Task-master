@@ -5,13 +5,13 @@ import { getFirestore } from "firebase/firestore";
 
 // Use environment variables for security
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_FIREBASE_API_KEY || "AIzaSyDdiLcjRhaPt5U97STIXWYx2pkgtkaNZNU",
-  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN || "task-master-98691.firebaseapp.com",
-  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID || "task-master-98691",
-  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET || "task-master-98691.firebasestorage.app",
-  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID || "472395254406",
-  appId: import.meta.env.VITE_FIREBASE_APP_ID || "1:472395254406:web:452bf11ab9517211585f07",
-  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID || "G-H6C739NKG5"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY ,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID
 };
 
 // Validate required environment variables in production

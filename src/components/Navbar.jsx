@@ -37,52 +37,58 @@ export default function Navbar() {
       </Link>
 
       {/* Center - Navigation links */}
-      <nav className="flex space-x-4 text-sm font-medium">
-        <Link
-          to="/"
-          className={location.pathname === "/" ? "text-purple-600 font-semibold" : "text-gray-700 hover:text-purple-600"}
-        >
-          Dashboard
-        </Link>
-        <Link
-          to="/add"
-          className={location.pathname === "/add" ? "text-purple-600 font-semibold" : "text-gray-700 hover:text-purple-600"}
-        >
-          Add Task
-        </Link>
-        <Link
-          to="/pending"
-          className={location.pathname === "/pending" ? "text-purple-600 font-semibold" : "text-gray-700 hover:text-purple-600"}
-        >
-          Pending Tasks
-        </Link>
-        <Link
-          to="/completed"
-          className={location.pathname === "/completed" ? "text-purple-600 font-semibold" : "text-gray-700 hover:text-purple-600"}
-        >
-          Completed Tasks
-        </Link>
-      </nav>
+      {user && (
+        <nav className="flex space-x-4 text-sm font-medium">
+          <Link
+            to="/"
+            className={location.pathname === "/" ? "text-purple-600 font-semibold" : "text-gray-700 hover:text-purple-600"}
+          >
+            Dashboard
+          </Link>
+          <Link
+            to="/add"
+            className={location.pathname === "/add" ? "text-purple-600 font-semibold" : "text-gray-700 hover:text-purple-600"}
+          >
+            Add Task
+          </Link>
+          <Link
+            to="/pending"
+            className={location.pathname === "/pending" ? "text-purple-600 font-semibold" : "text-gray-700 hover:text-purple-600"}
+          >
+            Pending Tasks
+          </Link>
+          <Link
+            to="/completed"
+            className={location.pathname === "/completed" ? "text-purple-600 font-semibold" : "text-gray-700 hover:text-purple-600"}
+          >
+            Completed Tasks
+          </Link>
+        </nav>
+      )}
 
       {/* Right - Date/time + user + logout */}
       <div className="flex items-center space-x-4">
         <div className="hidden md:block text-gray-600 text-xs">
           {dateTime.toLocaleDateString()} {dateTime.toLocaleTimeString()}
         </div>
-        {profile && (
-          <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 rounded-full bg-purple-200 text-purple-800 flex items-center justify-center font-semibold">
-              {profile.username ? profile.username.charAt(0).toUpperCase() : "U"}
-            </div>
-            <span className="text-gray-700 text-sm font-medium">{profile.username}</span>
-          </div>
+        {user && (
+          <>
+            {profile && (
+              <div className="flex items-center space-x-2">
+                <div className="w-8 h-8 rounded-full bg-purple-200 text-purple-800 flex items-center justify-center font-semibold">
+                  {profile.username ? profile.username.charAt(0).toUpperCase() : "U"}
+                </div>
+                <span className="text-gray-700 text-sm font-medium">{profile.username}</span>
+              </div>
+            )}
+            <button
+              onClick={() => navigate("/logout")}
+              className="bg-purple-600 text-white px-3 py-1 rounded-full text-xs hover:bg-purple-700 transition"
+            >
+              Logout
+            </button>
+          </>
         )}
-        <button
-          onClick={() => navigate("/logout")}   // ✅ navigate to /logout route
-          className="bg-purple-600 text-white px-3 py-1 rounded-full text-xs hover:bg-purple-700 transition"
-        >
-          Logout
-        </button>
       </div>
     </header>
   );
