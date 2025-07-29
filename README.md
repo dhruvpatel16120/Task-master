@@ -385,10 +385,23 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ### 📊 **Project Statistics**
 
-![GitHub stars](https://img.shields.io/github/stars/dhruvpatel16120/Task-master?style=social)
-![GitHub forks](https://img.shields.io/github/forks/dhruvpatel16120/Task-master?style=social)
-![GitHub issues](https://img.shields.io/github/issues/dhruvpatel16120/Task-master)
-![GitHub pull requests](https://img.shields.io/github/issues-pr/dhruvpatel16120/Task-master)
+> *Note: These badges will show actual data once the repository is published to GitHub*
+
+![GitHub stars](https://img.shields.io/github/stars/dhruvpatel16120/Task-master?style=social&label=Stars)
+![GitHub forks](https://img.shields.io/github/forks/dhruvpatel16120/Task-master?style=social&label=Forks)
+![GitHub issues](https://img.shields.io/github/issues/dhruvpatel16120/Task-master?label=Issues)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/dhruvpatel16120/Task-master?label=PRs)
+![GitHub license](https://img.shields.io/github/license/dhruvpatel16120/Task-master?label=License)
+![GitHub last commit](https://img.shields.io/github/last-commit/dhruvpatel16120/Task-master?label=Last%20Commit)
+
+**Alternative Badges (if repository doesn't exist yet):**
+```markdown
+![Made with React](https://img.shields.io/badge/Made%20with-React-61DAFB?style=for-the-badge&logo=react)
+![Made with Firebase](https://img.shields.io/badge/Made%20with-Firebase-FFCA28?style=for-the-badge&logo=firebase)
+![Made with Tailwind](https://img.shields.io/badge/Made%20with-Tailwind%20CSS-38B2AC?style=for-the-badge&logo=tailwind-css)
+![License MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)
+![Security](https://img.shields.io/badge/Security-Enterprise%20Grade-green?style=for-the-badge&logo=shield)
+```
 
 ---
 
