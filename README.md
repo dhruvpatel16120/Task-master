@@ -3,76 +3,27 @@
 > **A modern, professional, feature-rich to-do list app built with React, Tailwind CSS, and Firebase.**  
 > Organize your tasks, boost productivity, and track progress with enterprise-grade security.
 
-![Task Master Banner](https://img.shields.io/badge/Task%20Master-v2.0-blue?style=for-the-badge&logo=react)
-![Security](https://img.shields.io/badge/Security-Enterprise%20Grade-green?style=for-the-badge&logo=shield)
-![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)
+![Task Master Banner](/public/logo.png)
 
 ---
 
-## 📋 Table of Contents
+## ✨ **Features**
 
-- [✨ Features](#-features)
-- [🔒 Security Features](#-security-features)
-- [🛠️ Tech Stack](#️-tech-stack)
-- [📸 Screenshots](#-screenshots)
-- [⚙️ Installation & Setup](#️-installation--setup)
-- [🔧 Configuration](#-configuration)
-- [🚀 Deployment](#-deployment)
-- [🔍 Security & Quality](#-security--quality)
-- [📚 API Documentation](#-api-documentation)
-- [🤝 Contributing](#-contributing)
-- [📄 License](#-license)
-
----
-
-## ✨ Features
-
-### 🎯 **Core Functionality**
-- ✅ **User Authentication** - Google OAuth & Email/Password with secure session management
-- ✅ **Task Management** - Create, edit, delete, and organize tasks with categories & priorities
-- ✅ **Smart Dashboard** - Real-time statistics, completion rates, and progress tracking
-- ✅ **Advanced Filtering** - Filter by status, category, priority, and due dates
-- ✅ **Calendar Integration** - Visual calendar view for task scheduling
-- ✅ **Data Export** - Export tasks to CSV format for backup and analysis
-
-### 🎨 **User Experience**
-- ✅ **Responsive Design** - Beautiful UI that works on all devices
-- ✅ **Dark/Light Mode** - Toggle between themes for comfortable usage
-- ✅ **Real-time Updates** - Live synchronization across all devices
-- ✅ **Smooth Animations** - Professional transitions and micro-interactions
-- ✅ **Accessibility** - WCAG compliant for inclusive design
-
-### 📊 **Analytics & Insights**
-- ✅ **Progress Tracking** - Visual charts and completion statistics
-- ✅ **Productivity Metrics** - Time tracking and performance analytics
-- ✅ **Motivational Quotes** - Daily inspiration to boost productivity
-- ✅ **Task History** - Complete audit trail of all activities
-
----
-
-## 🔒 Security Features
-
-### 🛡️ **Enterprise-Grade Security**
-- ✅ **Authentication Security** - Rate limiting, password strength validation, account lockout
-- ✅ **Data Protection** - XSS prevention, input sanitization, SQL injection protection
-- ✅ **Privacy Controls** - User data isolation, secure data deletion, GDPR compliance
-- ✅ **Infrastructure Security** - Environment variable protection, secure API endpoints
-- ✅ **Monitoring & Auditing** - Security logging, vulnerability scanning, incident response
-
-### 🔐 **Security Measures**
-```bash
-# Automated Security Checks
-npm run security-audit    # Vulnerability scanning
-npm run security-check    # Full security validation
-npm run pre-commit        # Pre-commit security checks
-```
-
-### 🚨 **Security Best Practices**
-- **Input Validation** - All user inputs are validated and sanitized
-- **Rate Limiting** - Protection against brute force attacks
-- **Error Handling** - Secure error messages without data exposure
-- **Code Quality** - ESLint security rules and automated audits
-- **Dependency Management** - Regular security updates and vulnerability scanning
+✅ User authentication (Google & Email/Password)  
+✅ Add, edit, delete tasks with categories, priority & tags  
+✅ Live preview while adding/editing  
+✅ High priority toggle  
+✅ Dashboard with:
+- Total, completed & pending counts
+- Completion rate
+- Latest tasks list
+- Motivational quotes widget (with author & new quote button)
+  
+✅ Export tasks to CSV  
+✅ Delete confirm modal  
+✅ Fully responsive design with Tailwind v3  
+✅ Firebase Firestore integration  
+✅ Professional UI, smooth fade animations
 
 ---
 
@@ -96,13 +47,13 @@ npm run pre-commit        # Pre-commit security checks
 
 > *Replace these with your actual screenshots:*
 
-| **Login & Authentication** | **Dashboard Overview** | **Task Management** |
-|---------------------------|------------------------|-------------------|
+| Login | Dashboard | Add Task |
+|--|--|--|
 | ![Login](/public/login.png) | ![Dashboard](/public/dashboard.png) | ![Add Task](/public/addtask.png) |
 
-| **Calendar View** | **Task Analytics** | **Mobile Responsive** |
-|------------------|-------------------|---------------------|
-| ![Calendar](/public/calendar.png) | ![Analytics](/public/analytics.png) | ![Mobile](/public/mobile.png) |
+| Pending Tasks | Edit Task | Delete Confirm |
+|--|--|--|
+| ![Pending](public/pendingtask.png) | ![Edit](public/edittask.png) | ![Delete](public/deletetask.png) |
 
 ---
 
