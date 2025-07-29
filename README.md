@@ -68,7 +68,7 @@
 
 #### 1️⃣ **Clone the Repository**
 ```bash
-git clone https://github.com/yourusername/task-master.git
+git clone https://github.com/dhruvpatel16120/Task-master.git
 cd task-master
 ```
 
@@ -80,7 +80,7 @@ npm install
 #### 3️⃣ **Environment Configuration**
 ```bash
 # Copy environment template
-cp env.example .env
+touch .env
 
 # Edit .env with your Firebase credentials
 nano .env
@@ -164,32 +164,6 @@ service cloud.firestore {
 ```
 
 ---
-
-## 🚀 Deployment
-
-### 🌐 **Firebase Hosting**
-
-#### 1️⃣ **Build for Production**
-```bash
-npm run build
-```
-
-#### 2️⃣ **Initialize Firebase (First Time)**
-```bash
-npm install -g firebase-tools
-firebase login
-firebase init
-```
-
-**Firebase Init Options:**
-- Public directory: `dist`
-- Configure as SPA: `Yes`
-- Overwrite index.html: `No`
-
-#### 3️⃣ **Deploy**
-```bash
-firebase deploy
-```
 
 ### 🔒 **Security Commands**
 ```bash
@@ -369,14 +343,14 @@ We welcome contributions! Please follow these guidelines:
 
 ```bash
 # Clone your fork
-git clone https://github.com/yourusername/task-master.git
+git clone https://github.com/dhruvpatel16120/Task-master.git
 cd task-master
 
 # Install dependencies
 npm install
 
 # Set up environment
-cp env.example .env
+touch .env
 # Edit .env with your Firebase credentials
 
 # Run security checks
@@ -411,10 +385,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ### 📊 **Project Statistics**
 
-![GitHub stars](https://img.shields.io/github/stars/yourusername/task-master?style=social)
-![GitHub forks](https://img.shields.io/github/forks/yourusername/task-master?style=social)
-![GitHub issues](https://img.shields.io/github/issues/yourusername/task-master)
-![GitHub pull requests](https://img.shields.io/github/issues-pr/yourusername/task-master)
+![GitHub stars](https://img.shields.io/github/stars/dhruvpatel16120/Task-master?style=social)
+![GitHub forks](https://img.shields.io/github/forks/dhruvpatel16120/Task-master?style=social)
+![GitHub issues](https://img.shields.io/github/issues/dhruvpatel16120/Task-master)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/dhruvpatel16120/Task-master)
 
 ---
 
