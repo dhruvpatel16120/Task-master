@@ -44,6 +44,15 @@ export default function AddTask() {
       // Sanitize task data before saving
       const sanitizedData = sanitizeTaskData(taskData);
       
+      console.log("Adding task with data:", {
+        uid: user.uid,
+        username: user.displayName || "Anonymous",
+        userEmail: user.email || "No email",
+        ...sanitizedData,
+        completed: false,
+        createdAt: serverTimestamp()
+      });
+
       await addDoc(collection(db, "tasks"), {
         uid: user.uid,
         username: user.displayName || "Anonymous",

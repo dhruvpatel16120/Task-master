@@ -101,7 +101,7 @@ export const errorLogger = new ErrorLogger();
 /**
  * Firebase authentication error handler
  */
-export const handleAuthError = (error) => {
+export const handleAuthError = (error, operation) => {
   let userMessage = 'An authentication error occurred.';
   let severity = ErrorSeverity.MEDIUM;
 
@@ -150,6 +150,11 @@ export const handleAuthError = (error) => {
       default:
         userMessage = 'Something went wrong. Please try again.';
     }
+  }
+
+  if (operation === "logout" && error.code === "permission-denied") {
+    // Don't show toast
+    return;
   }
 
   errorLogger.log(error, { type: 'AUTHENTICATION' }, severity);

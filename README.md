@@ -149,14 +149,17 @@ Add these Firestore security rules:
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
-    // Users can only access their own data
+    // Users can create their own profile and access their own data
     match /users/{userId} {
-      allow read, write: if request.auth != null && request.auth.uid == userId;
+      allow create: if request.auth != null && request.auth.uid == userId;
+      allow read, update, delete: if request.auth != null && request.auth.uid == userId;
+      allow write: if request.auth != null && request.auth.uid == userId;
     }
     
     // Tasks belong to users
     match /tasks/{taskId} {
-      allow read, write: if request.auth != null && 
+      allow create: if request.auth != null && request.auth.uid == request.resource.data.uid;
+      allow read, update, delete: if request.auth != null && 
         request.auth.uid == resource.data.uid;
     }
   }
@@ -383,10 +386,7 @@ When reporting issues, please include:
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-### 📊 **Project Statistics**
-
-> *Note: These badges will show actual data once the repository is published to GitHub*
-
+###📊 **Project Statistics**
 ![Made with React](https://img.shields.io/badge/Made%20with-React-61DAFB?style=for-the-badge&logo=react)
 ![Made with Firebase](https://img.shields.io/badge/Made%20with-Firebase-FFCA28?style=for-the-badge&logo=firebase)
 ![Made with Tailwind](https://img.shields.io/badge/Made%20with-Tailwind%20CSS-38B2AC?style=for-the-badge&logo=tailwind-css)

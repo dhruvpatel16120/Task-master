@@ -71,7 +71,7 @@ export default function Navbar() {
         <div className="hidden md:block text-gray-600 text-xs">
           {dateTime.toLocaleDateString()} {dateTime.toLocaleTimeString()}
         </div>
-        {user && (
+        {user ? (
           <>
             {profile && (
               <div className="flex items-center space-x-2">
@@ -88,6 +88,22 @@ export default function Navbar() {
               Logout
             </button>
           </>
+        ) : (
+          // Show login/signup links for unauthenticated users
+          <div className="flex items-center space-x-3">
+            <Link
+              to="/login"
+              className="text-gray-700 hover:text-purple-600 text-sm font-medium transition"
+            >
+              Login
+            </Link>
+            <Link
+              to="/signup"
+              className="bg-purple-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-purple-700 transition"
+            >
+              Sign Up
+            </Link>
+          </div>
         )}
       </div>
     </header>

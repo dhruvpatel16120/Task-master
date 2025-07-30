@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { auth, googleProvider, db } from "../services/firebase";
 import {
   signInWithEmailAndPassword,
@@ -9,9 +9,10 @@ import {
   browserSessionPersistence
 } from "firebase/auth";
 import { doc, setDoc, serverTimestamp } from "firebase/firestore";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link, useLocation } from "react-router-dom";
 import { validateEmail, rateLimiter } from "../utils/security";
 import { handleAuthError, handleDatabaseError } from "../utils/errorHandler";
+import toast from "react-hot-toast";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -20,8 +21,19 @@ export default function Login() {
   const [rememberMe, setRememberMe] = useState(false);
   const [resetEmail, setResetEmail] = useState("");
   const [error, setError] = useState(null);
+  const [successMessage, setSuccessMessage] = useState("");
 
   const navigate = useNavigate();
+  const location = useLocation();
+
+  // Check if user came from signup page
+  useEffect(() => {
+    if (location.state?.fromSignup) {
+      setSuccessMessage("Account created successfully! Please log in.");
+      // Clear the state to prevent showing message again on refresh
+      navigate(location.pathname, { replace: true });
+    }
+  }, [location, navigate]);
 
     const handleLogin = async (e) => {
     e.preventDefault();
@@ -124,6 +136,12 @@ export default function Login() {
             </div>
           )}
 
+          {successMessage && (
+            <div className="mb-4 text-sm text-green-600 bg-green-100 border border-green-200 rounded p-2">
+              {successMessage}
+            </div>
+          )}
+
           <form onSubmit={handleLogin} className="space-y-4">
             <div>
               <label className="text-sm font-medium text-gray-700">Email address</label>
@@ -143,7 +161,7 @@ export default function Login() {
               <label className="text-sm font-medium text-gray-700">Password</label>
               <input
                 type="password"
-                className="w-full px-4 py-2 mt-1 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-4 py-2 mt-1 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
@@ -163,43 +181,43 @@ export default function Login() {
               <button
                 type="button"
                 onClick={handleForgotPassword}
-                className="text-blue-600 hover:underline"
+                className="text-purple-600 hover:underline"
               >
                 Forgot password?
               </button>
             </div>
 
-                  <button
-          type="submit"
-          disabled={loading}
-          className={`w-full flex items-center justify-center bg-purple-600 text-white py-2 rounded-md transition ${
-            loading ? "opacity-70 cursor-not-allowed" : "hover:bg-purple-700"
-          }`}
-        >
-          {loading ? (
-            <svg
-              className="animate-spin h-5 w-5 mr-2 text-white"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
+            <button
+              type="submit"
+              disabled={loading}
+              className={`w-full flex items-center justify-center bg-purple-600 text-white py-2 rounded-md transition ${
+                loading ? "opacity-70 cursor-not-allowed" : "hover:bg-purple-700"
+              }`}
             >
-              <circle
-                className="opacity-25"
-                cx="12"
-                cy="12"
-                r="10"
-                stroke="currentColor"
-                strokeWidth="4"
-              ></circle>
-              <path
-                className="opacity-75"
-                fill="currentColor"
-                d="M4 12a8 8 0 018-8v4l3-3-3-3v4a8 8 0 11-8 8z"
-              ></path>
-            </svg>
-          ) : null}
-          {loading ? "logging in..." : "Log in"}
-        </button>
+              {loading ? (
+                <svg
+                  className="animate-spin h-5 w-5 mr-2 text-white"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <circle
+                    className="opacity-25"
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="currentColor"
+                    strokeWidth="4"
+                  ></circle>
+                  <path
+                    className="opacity-75"
+                    fill="currentColor"
+                    d="M4 12a8 8 0 018-8v4l3-3-3-3v4a8 8 0 11-8 8z"
+                  ></path>
+                </svg>
+              ) : null}
+              {loading ? "Logging in..." : "Log in"}
+            </button>
 
           </form>
 

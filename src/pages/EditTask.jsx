@@ -4,10 +4,12 @@ import { doc, getDoc, updateDoc, serverTimestamp } from "firebase/firestore";
 import { useParams, useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import toast from "react-hot-toast";
+import { useAuth } from "../context/AuthContext";
 
 export default function EditTask() {
   const { id } = useParams();
   const navigate = useNavigate();
+  const { user } = useAuth();
   const [loading, setLoading] = useState(false);
   const [fetching, setFetching] = useState(true);
 
@@ -20,7 +22,6 @@ export default function EditTask() {
   const [tags, setTags] = useState("");
   const [duration, setDuration] = useState("");
   const [highPriority, setHighPriority] = useState(false);
-
 
   useEffect(() => {
     const fetchTask = async () => {
@@ -65,7 +66,8 @@ export default function EditTask() {
         tags: tags.split(",").map(t => t.trim()).filter(Boolean),
         duration,
         highPriority,
-        updatedAt: serverTimestamp()
+        updatedAt: serverTimestamp(),
+        uid: user.uid // Always include uid for security rules
       });
       toast.success("✅ Task updated!");
       navigate("/pending");

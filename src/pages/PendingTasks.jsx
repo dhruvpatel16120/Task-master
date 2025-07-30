@@ -61,7 +61,7 @@ export default function PendingTasks() {
 
   const markAsCompleted = async (id) => {
     try {
-      await updateDoc(doc(db, "tasks", id), { completed: true });
+      await updateDoc(doc(db, "tasks", id), { completed: true, uid: user.uid });
       toast.success("✅ Task marked as completed!");
     } catch (err) {
       console.error("Failed to mark as completed:", err);

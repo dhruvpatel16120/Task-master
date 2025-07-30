@@ -10,6 +10,8 @@ import Logout from './pages/Logout';
 import EditTask from './pages/EditTask';
 import CalendarView from './pages/CalendarView';
 import PrivateRoute from './components/PrivateRoute';
+import PublicRoute from './components/PublicRoute';
+import NotFound from './components/NotFound';
 import { Toaster } from 'react-hot-toast';
 
 export default function App() {
@@ -23,11 +25,14 @@ export default function App() {
         <Route path="/add" element={<PrivateRoute><AddTask /></PrivateRoute>} />
         <Route path="/pending" element={<PrivateRoute><PendingTasks /></PrivateRoute>} />
         <Route path="/completed" element={<PrivateRoute><CompletedTasks /></PrivateRoute>} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<PublicRoute><Login /></PublicRoute>} />
+        <Route path="/signup" element={<PublicRoute><Signup /></PublicRoute>} />
         <Route path="/logout" element={<PrivateRoute><Logout /></PrivateRoute>} />
         <Route path="/edit/:id" element={<PrivateRoute><EditTask /></PrivateRoute>} />
         <Route path="/calendar" element={<PrivateRoute><CalendarView /></PrivateRoute>} />
+        
+        {/* 404 Route - Redirect to appropriate page based on auth status */}
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </>
   );
