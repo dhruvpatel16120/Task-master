@@ -47,20 +47,20 @@
 
 | Login | Dashboard | Add Task |
 |--|--|--|
-| ![Login](/public/login.png) | ![Dashboard](/public/dashboard.png) | ![Add Task](/public/addtask.png) |
+| ![Login](/preview/login.png) | ![Dashboard](/preview/dashboard.png) | ![Add Task](/preview/addtask.png) |
 
 | Pending Tasks | Edit Task | Delete Confirm |
 |--|--|--|
-| ![Pending](public/pendingtask.png) | ![Edit](public/edittask.png) | ![Delete](public/deletetask.png) |
+| ![Pending](preview/pendingtask.png) | ![Edit](preview/edittask.png) | ![Delete](preview/deletetask.png) |
 ### 📱 Mobile view
 
 | Login | Dashboard | Add Task |
 |--|--|--|
-| ![Login](/public/loginmv.png) | ![Dashboard](/public/dashboardmv.png) | ![Add Task](/public/addtaskmv.png) |
+| ![Login](/preview/loginmv.png) | ![Dashboard](/preview/dashboardmv.png) | ![Add Task](/preview/addtaskmv.png) |
 
 | Pending Tasks | Completed Task | Edit Task |
 |--|--|--|
-| ![Pending](public/pendingtaskmv.png) | ![Completed](public/completedtaskmv.png) | ![Edit](public/edittaskmv.png) |
+| ![Pending](preview/pendingtaskmv.png) | ![Completed](preview/completedtaskmv.png) | ![Edit](preview/edittaskmv.png) |
 ---
 
 ## ⚙️ Installation & Setup
