@@ -87,6 +87,16 @@ export default function Navbar() {
               >
                 Completed Tasks
               </Link>
+              <Link
+                to="/calendar"
+                className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                  location.pathname === "/calendar" 
+                    ? "text-purple-600 bg-purple-50" 
+                    : "text-gray-700 hover:text-purple-600 hover:bg-gray-50"
+                }`}
+              >
+                📅 Calendar
+              </Link>
             </nav>
           )}
 
@@ -198,6 +208,16 @@ export default function Navbar() {
                   }`}
                 >
                   Completed Tasks
+                </Link>
+                <Link
+                  to="/calendar"
+                  className={`block px-3 py-2 rounded-md text-base font-medium transition-colors ${
+                    location.pathname === "/calendar" 
+                      ? "text-purple-600 bg-purple-50" 
+                      : "text-gray-700 hover:text-purple-600 hover:bg-gray-50"
+                  }`}
+                >
+                  📅 Calendar
                 </Link>
                 
                 {/* Mobile user info and logout */}
