@@ -81,124 +81,142 @@ export default function EditTask() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-50 to-purple-100">
+      <div className="flex justify-center items-start py-6 sm:py-10 px-4 sm:px-6 lg:px-8">
+        <div className="bg-white rounded-xl shadow-xl w-full max-w-2xl p-4 sm:p-6 lg:p-8 space-y-4 sm:space-y-6">
+          <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-purple-700 text-center flex items-center justify-center gap-2 mb-4">
+            ✏ Edit Task
+          </h2>
 
-      <div className="max-w-xl mx-auto mt-10 bg-white rounded-xl shadow-md p-6 space-y-4">
-        <h2 className="text-2xl font-bold text-purple-700 text-center flex items-center justify-center gap-2">
-          ✏ Edit Task
-        </h2>
-
-        {fetching ? (
-          <p className="text-center text-gray-500">Loading task details...</p>
-        ) : (
-          <>
-            <div>
-              <label className="block text-sm text-gray-600 mb-1">Title</label>
-              <input
-                value={title}
-                onChange={e => setTitle(e.target.value)}
-                className="w-full px-3 py-2 border border-purple-300 rounded focus:outline-none focus:ring-2 focus:ring-purple-500"
-              />
+          {fetching ? (
+            <div className="text-center py-8">
+              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-purple-600 mx-auto mb-4"></div>
+              <p className="text-gray-500">Loading task details...</p>
             </div>
-
-            <div>
-              <label className="block text-sm text-gray-600 mb-1">Description</label>
-              <textarea
-                value={description}
-                onChange={e => setDescription(e.target.value)}
-                rows="3"
-                className="w-full px-3 py-2 border border-purple-300 rounded focus:outline-none focus:ring-2 focus:ring-purple-500"
-              ></textarea>
-            </div>
-
-            <div className="flex space-x-4">
-              <div className="flex-1">
-                <label className="block text-sm text-gray-600 mb-1">Priority</label>
-                <select
-                  value={priority}
-                  onChange={e => setPriority(e.target.value)}
-                  className="w-full px-3 py-2 border border-purple-300 rounded focus:outline-none focus:ring-2 focus:ring-purple-500"
-                >
-                  <option>Low</option>
-                  <option>Medium</option>
-                  <option>High</option>
-                </select>
-              </div>
-              <div className="flex-1">
-                <label className="block text-sm text-gray-600 mb-1">Category</label>
-                <select
-                  value={category}
-                  onChange={e => setCategory(e.target.value)}
-                  className="w-full px-3 py-2 border border-purple-300 rounded focus:outline-none focus:ring-2 focus:ring-purple-500"
-                >
-                  <option>Personal</option>
-                  <option>Work</option>
-                  <option>Study</option>
-                  <option>Other</option>
-                </select>
-              </div>
-            </div>
-
-            <div>
-              <label className="block text-sm text-gray-600 mb-1">Due Date & Time</label>
-              <input
-                type="datetime-local"
-                value={dueDate}
-                onChange={e => setDueDate(e.target.value)}
-                className="w-full px-3 py-2 border border-purple-300 rounded focus:outline-none focus:ring-2 focus:ring-purple-500"
-              />
-            </div>
-
-            <div>
-              <label className="block text-sm text-gray-600 mb-1">Tags (comma separated)</label>
-              <input
-                value={tags}
-                onChange={e => setTags(e.target.value)}
-                placeholder="e.g., urgent, frontend"
-                className="w-full px-3 py-2 border border-purple-300 rounded focus:outline-none focus:ring-2 focus:ring-purple-500"
-              />
-            </div>
-
-            <div className="flex space-x-4">
-              <div className="flex-1">
-                <label className="block text-sm text-gray-600 mb-1">Estimated Duration</label>
+          ) : (
+            <>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Title</label>
                 <input
-                  value={duration}
-                  onChange={e => setDuration(e.target.value)}
-                  placeholder="e.g., 2h, 30min"
-                  className="w-full px-3 py-2 border border-purple-300 rounded focus:outline-none focus:ring-2 focus:ring-purple-500"
+                  value={title}
+                  onChange={e => setTitle(e.target.value)}
+                  placeholder="Enter task title"
+                  className="w-full px-4 py-3 border border-purple-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors"
                 />
               </div>
-              <div className="flex items-center mt-6">
-                <input
-                  type="checkbox"
-                  checked={highPriority}
-                  onChange={() => setHighPriority(!highPriority)}
-                  className="mr-2 accent-purple-600"
-                />
-                <span className="text-gray-700 text-sm">High priority</span>
-              </div>
-            </div>
 
-            <div className="flex gap-2">
-              <button
-                onClick={handleUpdate}
-                disabled={loading}
-                className={`flex-1 bg-purple-600 text-white py-2 rounded hover:bg-purple-700 transition ${
-                  loading ? "opacity-60 cursor-not-allowed" : ""
-                }`}
-              >
-                {loading ? "Updating..." : "Update Task"}
-              </button>
-              
-              <button
-                onClick={() => navigate(-1)}
-                className="flex-1 border border-purple-600 text-purple-700 py-2 rounded hover:bg-purple-50 transition"
-              >
-                Cancel
-              </button>
-            </div>
-          </>
-        )}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Description</label>
+                <textarea
+                  value={description}
+                  onChange={e => setDescription(e.target.value)}
+                  rows="3"
+                  placeholder="Add details..."
+                  className="w-full px-4 py-3 border border-purple-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors resize-none"
+                ></textarea>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Priority</label>
+                  <select
+                    value={priority}
+                    onChange={e => setPriority(e.target.value)}
+                    className="w-full px-4 py-3 border border-purple-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors"
+                  >
+                    <option>Low</option>
+                    <option>Medium</option>
+                    <option>High</option>
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Category</label>
+                  <select
+                    value={category}
+                    onChange={e => setCategory(e.target.value)}
+                    className="w-full px-4 py-3 border border-purple-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors"
+                  >
+                    <option>Personal</option>
+                    <option>Work</option>
+                    <option>Study</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Due Date & Time</label>
+                <input
+                  type="datetime-local"
+                  value={dueDate}
+                  onChange={e => setDueDate(e.target.value)}
+                  className="w-full px-4 py-3 border border-purple-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Tags (comma separated)</label>
+                <input
+                  value={tags}
+                  onChange={e => setTags(e.target.value)}
+                  placeholder="e.g., urgent, frontend, meeting"
+                  className="w-full px-4 py-3 border border-purple-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors"
+                />
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Estimated Duration</label>
+                  <input
+                    value={duration}
+                    onChange={e => setDuration(e.target.value)}
+                    placeholder="e.g., 2h, 30min"
+                    className="w-full px-4 py-3 border border-purple-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors"
+                  />
+                </div>
+                <div className="flex items-center justify-start sm:justify-end">
+                  <label className="flex items-center cursor-pointer">
+                    <input
+                      type="checkbox"
+                      checked={highPriority}
+                      onChange={() => setHighPriority(!highPriority)}
+                      className="mr-3 w-4 h-4 text-purple-600 border-gray-300 rounded focus:ring-purple-500"
+                    />
+                    <span className="text-gray-700 text-sm font-medium">High priority</span>
+                  </label>
+                </div>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-3 pt-4">
+                <button
+                  onClick={handleUpdate}
+                  disabled={loading}
+                  className={`flex-1 bg-purple-600 text-white py-3 px-4 rounded-lg font-medium hover:bg-purple-700 transition-colors ${
+                    loading ? "opacity-60 cursor-not-allowed" : ""
+                  }`}
+                >
+                  {loading ? (
+                    <div className="flex items-center justify-center">
+                      <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                      </svg>
+                      Updating...
+                    </div>
+                  ) : (
+                    "Update Task"
+                  )}
+                </button>
+                
+                <button
+                  onClick={() => navigate(-1)}
+                  className="flex-1 border border-purple-600 text-purple-700 py-3 px-4 rounded-lg font-medium hover:bg-purple-50 transition-colors"
+                >
+                  Cancel
+                </button>
+              </div>
+            </>
+          )}
+        </div>
       </div>
     </div>
   );

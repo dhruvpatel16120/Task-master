@@ -50,67 +50,84 @@ export default function CompletedTasks() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-50 to-purple-100">
-
-      <div className="max-w-4xl mx-auto px-4 mt-8">
-        <h2 className="text-2xl font-bold text-purple-700 mb-4">Completed Tasks</h2>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 space-y-6">
+        <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-purple-700 mb-4">✅ Completed Tasks</h2>
 
         {tasks.length === 0 && (
-          <p className="text-gray-600">No completed tasks yet. ✅</p>
+          <div className="text-center py-12">
+            <p className="text-gray-600 text-lg">No completed tasks yet. ✅</p>
+            <p className="text-gray-500 text-sm mt-2">Start completing tasks to see them here!</p>
+          </div>
         )}
 
-        <div className="grid gap-4">
+        <div className="grid gap-4 sm:gap-6">
           {tasks.map((task) => (
             <div
               key={task.id}
-              className="bg-white rounded-lg shadow hover:shadow-md transition p-4 space-y-2 border border-purple-100"
+              className="bg-white rounded-xl shadow-sm hover:shadow-md transition-all p-4 sm:p-6 space-y-4 border border-purple-100"
             >
-              <div className="flex justify-between items-start">
-                <div>
-                  <h3 className="text-lg font-semibold text-purple-800 line-through">{task.title}</h3>
-                  <p className="text-gray-600 text-sm">{task.description}</p>
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-4">
+                <div className="flex-1 min-w-0">
+                  <h3 className="text-lg sm:text-xl font-semibold text-purple-800 line-through mb-2">{task.title}</h3>
+                  <p className="text-gray-600 text-sm sm:text-base mb-3">{task.description}</p>
+                  
+                  <div className="flex flex-wrap gap-2 text-xs sm:text-sm text-gray-500">
+                    {task.dueDate && (
+                      <span className="bg-gray-100 px-2 py-1 rounded">
+                        Due: {format(task.dueDate.toDate ? task.dueDate.toDate() : new Date(task.dueDate), "dd MMM yyyy, p")}
+                      </span>
+                    )}
+                    <span className="bg-purple-100 text-purple-700 px-2 py-1 rounded">
+                      {task.category}
+                    </span>
+                    <span className={`px-2 py-1 rounded ${
+                      task.priority === 'High' ? 'bg-red-100 text-red-700' :
+                      task.priority === 'Medium' ? 'bg-yellow-100 text-yellow-700' :
+                      'bg-green-100 text-green-700'
+                    }`}>
+                      {task.priority}
+                    </span>
+                    {task.duration && (
+                      <span className="bg-blue-100 text-blue-700 px-2 py-1 rounded">
+                        {task.duration}
+                      </span>
+                    )}
+                    {task.highPriority && (
+                      <span className="bg-red-100 text-red-700 px-2 py-1 rounded font-semibold">
+                        🔥 High Priority
+                      </span>
+                    )}
+                  </div>
+
+                  {task.tags?.length > 0 && (
+                    <div className="flex flex-wrap gap-1 mt-3">
+                      {task.tags.map((tag, idx) => (
+                        <span
+                          key={idx}
+                          className="bg-purple-100 text-purple-700 px-2 py-1 rounded-full text-xs"
+                        >
+                          #{tag}
+                        </span>
+                      ))}
+                    </div>
+                  )}
                 </div>
-                <div className="flex space-x-2">
+                
+                <div className="flex flex-wrap gap-2 sm:flex-col sm:gap-2">
                   <button
                     onClick={() => markAsPending(task.id)}
-                    className="text-xs px-2 py-1 bg-yellow-500 text-white rounded hover:bg-yellow-600"
+                    className="flex-1 sm:flex-none text-xs sm:text-sm px-3 py-2 bg-yellow-600 text-white rounded-lg hover:bg-yellow-700 transition-colors font-medium"
                   >
-                    ↩ Pending
+                    ↩ Move to Pending
                   </button>
                   <button
                     onClick={() => deleteTask(task.id)}
-                    className="text-xs px-2 py-1 bg-red-500 text-white rounded hover:bg-red-600"
+                    className="flex-1 sm:flex-none text-xs sm:text-sm px-3 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors font-medium"
                   >
                     🗑 Delete
                   </button>
                 </div>
               </div>
-
-              <div className="flex flex-wrap text-xs text-gray-500 space-x-2">
-                {task.dueDate && (
-                  <span>
-                    Due: {format(task.dueDate.toDate ? task.dueDate.toDate() : new Date(task.dueDate), "dd MMM yyyy, p")}
-                  </span>
-                )}
-                <span>Category: {task.category}</span>
-                <span>Priority: {task.priority}</span>
-                {task.duration && <span>Duration: {task.duration}</span>}
-                {task.highPriority && (
-                  <span className="text-red-500 font-semibold">🔥 High</span>
-                )}
-              </div>
-
-              {task.tags?.length > 0 && (
-                <div className="flex flex-wrap gap-1">
-                  {task.tags.map((tag, idx) => (
-                    <span
-                      key={idx}
-                      className="bg-purple-100 text-purple-700 px-2 py-0.5 rounded-full text-xs"
-                    >
-                      #{tag}
-                    </span>
-                  ))}
-                </div>
-              )}
             </div>
           ))}
         </div>
