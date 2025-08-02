@@ -60,7 +60,7 @@
 
 | Pending Tasks | Completed Task | Edit Task |
 |--|--|--|
-| ![Pending](public/pendingtaskmv.png) | ![Edit](public/completedtaskmv.png) | ![Delete](public/edittaskmv.png) |
+| ![Pending](public/pendingtaskmv.png) | ![Completed](public/completedtaskmv.png) | ![Edit](public/edittaskmv.png) |
 ---
 
 ## ⚙️ Installation & Setup
