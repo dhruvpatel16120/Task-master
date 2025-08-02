@@ -53,7 +53,7 @@ export default function Login() {
     // Enhanced email validation
     if (!validateEmail(email)) {
       setError("Please enter a valid email address.");
-      return;
+      return; 
     }
 
     setLoading(true);
