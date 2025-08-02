@@ -45,8 +45,6 @@
 
 ## 📸 Screenshots
 
-> *Replace these with your actual screenshots:*
-
 | Login | Dashboard | Add Task |
 |--|--|--|
 | ![Login](/public/login.png) | ![Dashboard](/public/dashboard.png) | ![Add Task](/public/addtask.png) |
@@ -54,7 +52,15 @@
 | Pending Tasks | Edit Task | Delete Confirm |
 |--|--|--|
 | ![Pending](public/pendingtask.png) | ![Edit](public/edittask.png) | ![Delete](public/deletetask.png) |
+### 📱 Mobile view
 
+| Login | Dashboard | Add Task |
+|--|--|--|
+| ![Login](/public/loginmv.png) | ![Dashboard](/public/dashboardmv.png) | ![Add Task](/public/addtaskmv.png) |
+
+| Pending Tasks | Edit Task | Delete Confirm |
+|--|--|--|
+| ![Pending](public/pendingtaskmv.png) | ![Edit](public/edittaskmv.png) | ![Delete](public/deletetaskmv.png) |
 ---
 
 ## ⚙️ Installation & Setup
@@ -386,7 +392,7 @@ When reporting issues, please include:
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-###📊 **Project Statistics**
+### 📊 **Project Statistics**
 ![Made with React](https://img.shields.io/badge/Made%20with-React-61DAFB?style=for-the-badge&logo=react)
 ![Made with Firebase](https://img.shields.io/badge/Made%20with-Firebase-FFCA28?style=for-the-badge&logo=firebase)
 ![Made with Tailwind](https://img.shields.io/badge/Made%20with-Tailwind%20CSS-38B2AC?style=for-the-badge&logo=tailwind-css)
@@ -414,6 +420,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-**Made with ❤️ by the Task Master Team**
+**Made with ❤️ by Dhruv Patel**
 
 *Organize your life, one task at a time.*
