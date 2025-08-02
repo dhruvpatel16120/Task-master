@@ -126,7 +126,7 @@ export default function Login() {
       {/* Left Side - Login Form */}
       <div className="w-full md:w-1/2 flex flex-col justify-center items-center px-6 sm:px-16">
         <div className="w-full max-w-md">
-          <img src="/src/assets/logo.png" alt="Logo" className="w-36 mb-8" />
+          <img src="/logo.png" alt="Logo" className="w-36 mb-8" />
           <h2 className="text-3xl font-bold text-gray-800 mb-2">Welcome back</h2>
           <p className="text-gray-600 mb-4">Please enter your details</p>
 
@@ -230,7 +230,7 @@ export default function Login() {
             className="w-full mt-4 bg-purple-600 text-white py-2 rounded-md hover:bg-purple-700 transition flex items-center justify-center"
           >
             <img
-              src="/src/assets/google-color.svg"
+              src="/google-color.svg"
               alt="Google"
               className="w-5 h-5 mr-2 bg-white rounded-full p-[1px]"
             />
@@ -250,7 +250,7 @@ export default function Login() {
       <div
         className="hidden md:block md:w-1/2 bg-cover bg-center"
         style={{
-          backgroundImage: `url('/src/assets/bg.jpg')`,
+          backgroundImage: `url('bg.jpg')`,
         }}
       />
     </div>
