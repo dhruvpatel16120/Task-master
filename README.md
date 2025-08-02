@@ -58,9 +58,9 @@
 |--|--|--|
 | ![Login](/public/loginmv.png) | ![Dashboard](/public/dashboardmv.png) | ![Add Task](/public/addtaskmv.png) |
 
-| Pending Tasks | Edit Task | Delete Confirm |
+| Pending Tasks | Completed Task | Edit Task |
 |--|--|--|
-| ![Pending](public/pendingtaskmv.png) | ![Edit](public/edittaskmv.png) | ![Delete](public/deletetaskmv.png) |
+| ![Pending](public/pendingtaskmv.png) | ![Edit](public/completedtaskmv.png) | ![Delete](public/edittaskmv.png) |
 ---
 
 ## ⚙️ Installation & Setup
