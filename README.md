@@ -5,6 +5,8 @@
 
 ![Task Master Banner](/public/logo.png)
 
+[![Live Demo](https://img.shields.io/badge/Click_ME_For_Live_Demo-Taskmaster-00FFFF?style=for-the-badge&logo=vercel&logoColor=white)](https://taskmaster-todolist.vercel.app/)
+
 ---
 
 ## ✨ **Features**
