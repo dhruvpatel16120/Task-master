@@ -1,7 +1,7 @@
 # 🚀 Task Master — Advanced To-Do List App
 
 > **A modern, professional, feature-rich to-do list app built with React, Tailwind CSS, and Firebase.**  
-> Organize your tasks, boost productivity, and track progress with enterprise-grade security.
+> Organize your tasks, boost productivity, and track progress with security.
 
 ![Task Master Banner](/public/logo.png)
 
@@ -20,7 +20,6 @@
 - Motivational quotes widget (with author & new quote button)
   
 ✅ Export tasks to CSV  
-✅ Delete confirm modal  
 ✅ Fully responsive design with Tailwind v3  
 ✅ Firebase Firestore integration  
 ✅ Professional UI, smooth fade animations
@@ -99,16 +98,7 @@ nano .env
 4. Create Firestore database
 5. Copy your Firebase config to `.env`
 
-#### 5️⃣ **Security Validation**
-```bash
-# Run security audit
-npm run security-audit
-
-# Run full security check
-npm run security-check
-```
-
-#### 6️⃣ **Start Development**
+#### 5️⃣ **Start Development**
 ```bash
 npm run dev
 ```
